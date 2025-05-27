@@ -3,17 +3,14 @@ steps:
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/crud-python', '.']
 
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-    entrypoint: 'gcloud'
     args:
+      - 'gcloud'
       - 'run'
       - 'deploy'
       - 'crud-python'
-      - '--image'
-      - 'gcr.io/$PROJECT_ID/crud-python'
-      - '--region'
-      - 'asia-east1'
-      - '--platform'
-      - 'managed'
+      - '--image=gcr.io/$PROJECT_ID/crud-python'
+      - '--region=asia-east1'
+      - '--platform=managed'
       - '--allow-unauthenticated'
 
 images:
